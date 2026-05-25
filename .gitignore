@@ -1,0 +1,13 @@
+node_modules/
+cdk.out/
+dist/
+coverage/
+.env
+.env.*
+cdk.context.json
+*.log
+*.zip
+*.tar.gz
+__pycache__/
+*.pyc
+

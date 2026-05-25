@@ -1,0 +1,8 @@
+{
+  "app": "npx ts-node --prefer-ts-exts bin/meeting-minutes-generator.ts",
+  "context": {
+    "bedrockModelId": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+    "allowedOrigins": ["http://localhost:3000"]
+  }
+}
+

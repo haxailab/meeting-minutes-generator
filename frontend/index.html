@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meeting Minutes Generator</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 880px; margin: 48px auto; padding: 0 20px; }
+    textarea, input, select, button { font: inherit; width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+    textarea { min-height: 240px; padding: 12px; }
+    input, select, button { padding: 10px; }
+    pre { white-space: pre-wrap; background: #f5f5f5; padding: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Meeting Minutes Generator</h1>
+  <input id="apiUrl" placeholder="https://YOUR_API_ID.execute-api.YOUR_REGION.amazonaws.com/prod/minutes">
+  <input id="title" placeholder="Meeting title">
+  <select id="style">
+    <option value="summary">Summary</option>
+    <option value="detailed">Detailed</option>
+    <option value="executive">Executive</option>
+  </select>
+  <textarea id="transcript" placeholder="Paste transcript text here..."></textarea>
+  <button id="generate">Generate</button>
+  <pre id="output"></pre>
+  <script>
+    document.getElementById('generate').addEventListener('click', async () => {
+      const response = await fetch(document.getElementById('apiUrl').value.trim(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: document.getElementById('title').value.trim(),
+          style: document.getElementById('style').value,
+          transcript: document.getElementById('transcript').value
+        })
+      });
+      document.getElementById('output').textContent = JSON.stringify(await response.json(), null, 2);
+    });
+  </script>
+</body>
+</html>
+

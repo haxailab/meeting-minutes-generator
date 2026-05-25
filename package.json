@@ -1,0 +1,22 @@
+{
+  "name": "meeting-minutes-generator",
+  "version": "1.0.0",
+  "description": "Standalone AWS CDK meeting minutes generator using Amazon Bedrock.",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "synth": "cdk synth"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "aws-cdk": "2.169.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.4.5"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.169.0",
+    "constructs": "^10.3.0"
+  }
+}
